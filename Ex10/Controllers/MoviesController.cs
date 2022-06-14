@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System.Text.Encodings.Web;
 
 namespace Ex10.Controllers
 {
@@ -9,8 +10,8 @@ namespace Ex10.Controllers
             return "bbb";
         }
 
-        public string Welcome() {
-            return "zzz";
+        public string Welcome(string name, int id) {
+            return HtmlEncoder.Default.Encode($"{name} got id {id}");
         }
     }
 }
