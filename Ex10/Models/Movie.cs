@@ -23,7 +23,7 @@ namespace Ex10.Models
 
         [Range(1, 100)]
         public double Price { get; set; }
-        [RegularExpression(@"^[A-Z]+[a-zA-Z\s]*$")]
+        [RegularExpression(@"^[A-Z]+[a-zA-Z0-9""'\s-]*$")]
         [Required]
         [StringLength(5)]
         public string Rating { get; set; }
