@@ -7,6 +7,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using Ex10.Data;
 
 namespace Ex10
 {
@@ -23,6 +25,10 @@ namespace Ex10
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddDbContext<MainContext>(o=> o.UseSqlServer(Configuration.GetConnectionString("Local")));
+
+            services.AddDbContext<MainContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("MainContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
